@@ -1,9 +1,11 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[mask-quantity]'
 })
 export class MaskInputQuantityDirective {
+
+  // @Output() input = new EventEmitter<string>();
 
   @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent){
 
@@ -18,7 +20,7 @@ export class MaskInputQuantityDirective {
     let masked = parsed.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
     input.value = masked;
-
+    
   }
 
 }

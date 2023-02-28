@@ -1,10 +1,25 @@
 <form #myForm = "ngForm">
   <input type="text" name="inputQuantity" mask-quantity [(ngModel)]="inputQuantity" #myInput="ngModel" required>
+  <input 
+    type="text" 
+    name="inputQuantity2" 
+    [value]="inputQuantity2Number | number:'1.0-0'"
+    (keyup)="changeInput2($event)"
+    required
+  >
+  <!-- [ngModel]="inputQuantity2 | number:'4.0-0'"  -->
+
   <p [hidden]="myInput.valid || myInput.pristine">El formulario no es válido</p>
   <button type="submit" [disabled]="!myForm.form.valid">Comprobar</button>
 </form>
 <div>
   {{inputQuantity}}
+</div>
+<div>
+  {{inputQuantity2String }}
+</div>
+<div>
+  {{inputQuantity2Number | number:'1.0-0'}}
 </div>
 
 <h1>My First Attribute Directive</h1>
