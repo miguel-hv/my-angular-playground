@@ -1,26 +1,24 @@
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appMaskInputQuantity]'
+  selector: '[mask-quantity]'
 })
 export class MaskInputQuantityDirective {
 
-  @Input() appMaskInputQuantity = '';
+  @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent){
 
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.appMaskInputQuantity || 'red');
-  }
-  
-  @HostListener('mouseleave') onMouseLeave() {
-    this.highlight('');
-  }
-  
-  private highlight(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
-  }
+    const input = event.target as HTMLInputElement;
+    
+    let parsed = input.value.split('.').join("");
 
-  constructor(private el: ElementRef) {
-    this.el.nativeElement.style.backgroundColor = 'yellow';
+    if (parsed.length > 15) {
+      parsed = parsed.substring(0, 15);
+    }
+
+    let masked = parsed.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    input.value = masked;
+
   }
 
 }

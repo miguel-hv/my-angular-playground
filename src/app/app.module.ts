@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaskInputQuantityDirective } from './mask-input-quantity.directive';
 import { MaskTestComponent } from './pages/mask-test/mask-test.component';
+import { HighlightDirective } from './highlight.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaskInputQuantityDirective,
-    MaskTestComponent
+    MaskTestComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

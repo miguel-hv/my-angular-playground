@@ -1,6 +1,11 @@
-<form>
-  <input type="text">
+<form #myForm = "ngForm">
+  <input type="text" name="inputQuantity" mask-quantity [(ngModel)]="inputQuantity" #myInput="ngModel" required>
+  <p [hidden]="myInput.valid || myInput.pristine">El formulario no es válido</p>
+  <button type="submit" [disabled]="!myForm.form.valid">Comprobar</button>
 </form>
+<div>
+  {{inputQuantity}}
+</div>
 
 <h1>My First Attribute Directive</h1>
 
@@ -10,4 +15,4 @@
   <input type="radio" name="colors" (click)="color='yellow'">Yellow
   <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>
-<p [appMaskInputQuantity]="color">Highlight me!</p>
+<p [appHighlight]="color">Highlight me!</p>
