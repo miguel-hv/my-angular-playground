@@ -33,3 +33,14 @@
   <input type="radio" name="colors" (click)="color='cyan'">Cyan
 </div>
 <p [appHighlight]="color">Highlight me!</p>
+
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/mask-test" routerLinkActive="active" ariaCurrentWhenActive="page">Mask Test</a></li>
+    <li><a routerLink="/material" routerLinkActive="active" ariaCurrentWhenActive="page">Material</a></li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>

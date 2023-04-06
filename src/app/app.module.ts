@@ -9,6 +9,8 @@ import { HighlightDirective } from './highlight.directive';
 import { FormsModule } from '@angular/forms';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { MaterialComponent } from './pages/material/material.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -16,12 +18,14 @@ registerLocaleData(localeEs);
     AppComponent,
     MaskInputQuantityDirective,
     MaskTestComponent,
-    HighlightDirective
+    HighlightDirective,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-ES'},
