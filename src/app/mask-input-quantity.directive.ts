@@ -5,8 +5,6 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 })
 export class MaskInputQuantityDirective {
 
-  // @Output() input = new EventEmitter<string>();
-
   @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent){
 
     const input = event.target as HTMLInputElement;

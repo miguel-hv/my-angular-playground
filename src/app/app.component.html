@@ -1,29 +1,3 @@
-<form #myForm = "ngForm">
-  <input type="text" name="inputQuantity" mask-quantity [(ngModel)]="inputQuantity" #myInput="ngModel" required>
-  <input 
-    type="text" 
-    name="inputQuantity2"
-    #myInput2="ngModel"
-    [ngModel]="inputQuantity2Number | number:'1.0-0'"
-    (keyup)="changeInput2($event)"
-    pattern="^[\d+(\.\d+)*]{1,19}$"
-    required
-  >
-  <!-- [ngModel]="inputQuantity2 | number:'4.0-0'"  -->
-
-  <p [hidden]="myInput2.valid || myInput2.pristine">El formulario no es válido</p>
-  <button type="submit" [disabled]="!myForm.form.valid">Comprobar</button>
-</form>
-<div>
-  {{inputQuantity}}
-</div>
-<div>
-  {{inputQuantity2String }}
-</div>
-<div>
-  {{inputQuantity2Number | number:'1.0-0'}}
-</div>
-
 <h1>My First Attribute Directive</h1>
 
 <h2>Pick a highlight color</h2>
