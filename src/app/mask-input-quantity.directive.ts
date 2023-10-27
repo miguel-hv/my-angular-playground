@@ -5,20 +5,18 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 })
 export class MaskInputQuantityDirective {
 
-  @HostListener('input', ['$event']) onKeyDown(event: KeyboardEvent){
+  //chatgpt:
 
+  @HostListener('input', ['$event']) onInputChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    
-    let parsed = input.value.split('.').join("");
+    let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+    value = value !== '' ? parseInt(value, 10).toString() : ''; // Remove leading zeros
 
-    if (parsed.length > 15) {
-      parsed = parsed.substring(0, 15);
+    if (value !== '') {
+      value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Add dots every three digits
     }
 
-    let masked = parsed.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
-    input.value = masked;
-    
+    input.value = value;
   }
 
 }

@@ -20,7 +20,7 @@
         mask-quantity
         [(ngModel)]="inputQuantity"
         #myInput="ngModel"
-        pattern="^[\d+(\.\d+)*]{1,19}$"
+        maxlength="19"
         required
       >
       <input 
