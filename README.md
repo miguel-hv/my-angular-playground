@@ -10,3 +10,6 @@ En styles.scss se importa solo la grid porque nos interesa para evitar meter est
 
 ## Input Mask
 A través de una directiva puede formatearse la visualización de los datos de entrada de un campo de formulario. Otra opción es usar el paquete ngx-mask.
+
+## Form Array
+Formularios reactivos con un array para crear cuantos campos se necesiten. Se implementa el filtro de autocompletado de material para el array. Ejemplo tomado de [stackblitz](https://stackblitz.com/edit/angular-szxkme?file=app%2Fautocomplete-display-example.css) desde [stack overflow](https://stackoverflow.com/questions/51901852/how-to-add-angular-material-auto-complete-in-formarray)
